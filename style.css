@@ -11,8 +11,50 @@ body {
 .contenedor-principal {
     position: relative;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;               /* Separación ideal entre el texto y la ruleta */
+    max-width: 1200px;
+    margin: 8vh auto;
+    padding: 0 20px;
 }
-
+.columna-titulo {
+    flex: 0 0 auto;          /* Evita que empuje o deforme a la ruleta */
+    text-align: right;       /* Alineación derecha para que apunte estéticamente hacia la ruleta */
+}
+.titulo-lateral {
+    color: #e52d2d;          /* Rojo para las dos primeras líneas */
+    font-size: 46px;         
+    font-weight: 900;
+    line-height: 1.3;        /* Aumentamos un poquito para dar espacio al bloque rojo */
+    letter-spacing: 1px;
+    margin: 0;
+    text-transform: uppercase;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+}
+.destacado-news {
+    display: inline-block;    /* Permite que adopte fondo y rellenos */
+    background-color: #e52d2d;/* Tu fondo rojo exacto */
+    color: #ffffff;           /* Letras puramente blancas */
+    padding: 4px 15px;        /* Margen interno: arriba/abajo y lados del bloque */
+    border-radius: 6px;       /* Suaviza las esquinas de la caja roja */
+    margin-top: 8px;          /* Separa ligeramente el bloque de la palabra SOMBREROS */
+    font-size: 42px;          /* Ajuste sutil para que el bloque no se desborde */
+}
+.bloque-juego {
+    position: relative;
+    flex: 0 0 auto;
+    text-align: center;
+}
+.imagen-decorativa {
+    width: 300px;       /* Tamaño equilibrado debajo de tus dos renglones */
+    height: auto;       /* Mantiene la proporción perfecta sin deformar */
+    margin-top: 45px;   /* Separación estética para que no toque las letras */
+    display: inline-block;
+    border-radius: 8px; /* Bordes ligeramente suavizados */
+}
 /* Marco exterior redondo azul */
 .ruleta-marco {
     width: 450px;
@@ -44,19 +86,25 @@ body {
 /* Aguja morada indicadora a la derecha */
 .aguja {
     position: absolute;
-    right: -25px;
-    top: 220px;
+    top: 50%;
+    
+    /* CAMBIA ESTA LÍNEA: Cambiamos -50% por (-50% - 15px) para desplazarlo hacia arriba */
+    transform: translateY(calc(-50% - 45px)); 
+    
+    right: -35px; 
+    z-index: 10;
+
+    /* Tu tamaño de triángulo grande intacto */
     width: 0;
     height: 0;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-right: 45px solid #7b2cbf; 
-    z-index: 10;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-right: 40px solid #8a2be2; 
 }
 
 /* Botón de acción */
 button {
-    margin-top: 35px;
+    margin-top: 25px;
     padding: 16px 45px;
     font-size: 18px;
     font-weight: bold;
